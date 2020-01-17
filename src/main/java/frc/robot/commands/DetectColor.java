@@ -10,18 +10,25 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.util.Color;
-
-//import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorMatch;
 //import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
   
-  //public static final ColorSensorV3 m_colorSensor = new ColorSensorV3(/*port*/);
+  public static final ColorSensorV3 colorSensor = new ColorSensorV3(/*put port here*/);
   
+  /*
+  public final Color red = ColorMake (225, 0, 255);
+  public final Color yellow = ColorMake (255, 255, 0);
+  public final Color green = ColorMake (0, 255, 0);
+  public final Color blue = ColorMake (0, 255, 255);
+  */
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -45,4 +52,5 @@ public class DetectColor extends Command {
   @Override
   protected void interrupted() {
   }
+
 } 

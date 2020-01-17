@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wiplibj.command.DetectColor;
 
 public class ColorWheel extends Subsystem {
   public static final int ColorCount = 0;
@@ -50,6 +51,13 @@ public class ColorWheel extends Subsystem {
     }
 
 }*/
+
+  //This is for sending the color name to the SmartDashboard from the sensor
+  //SmartDashboard.putString("Red", )
+  //SmartDashboard.putString("Yellow", )
+  //SmartDashboard.putString("Green", )
+  //SmartDashboard.putString("Blue", )
+  //SmartDashboard.putString("Unknown", )
 
   @Override
   public void initDefaultCommand() {
