@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Limelight;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -25,6 +28,9 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   
+  public static Drivetrain driveTrain = new Drivetrain();
+  public static OI m_oi = new OI();
+  public static Limelight limelight = new Limelight();
   //public static Encoder spinnerEncoder = new Encoder (values);
 
   /**

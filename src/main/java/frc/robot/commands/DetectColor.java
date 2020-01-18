@@ -9,14 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj.util.ColorShim;
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatch;
-//import com.revrobotics.ColorMatchResult;
+import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
   
-  public static final ColorSensorV3 colorSensor = new ColorSensorV3(/*put port here*/);
+ // public static final ColorSensorV3 colorSensor = new ColorSensorV3(/*put port here*/);
   
   /*
   public final Color red = ColorMake (225, 0, 255);

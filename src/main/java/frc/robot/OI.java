@@ -39,8 +39,8 @@ public class OI {
 	public static final int BUTTON_LEFT_STICK = 9;
 	public static final int BUTTON_RIGHT_STICK = 10;
     
-    static Joystick driverJoystick = new Joystick(DRIVER_JOYSTICK);
-    static Joystick manipulatorJoystick = new Joystick(MANIPULATOR_JOYSTICK);
+    public static Joystick driverJoystick = new Joystick(DRIVER_JOYSTICK);
+    public static Joystick manipulatorJoystick = new Joystick(MANIPULATOR_JOYSTICK);
     
     /*
     Examples of Joysticks and Buttons:
