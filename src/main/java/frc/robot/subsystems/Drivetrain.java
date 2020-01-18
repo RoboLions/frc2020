@@ -118,9 +118,7 @@ public class Drivetrain extends Subsystem {
 	WPI_TalonSRX rightMotorFront = RobotMap.frontRightMotor;
 	WPI_TalonSRX rightMotorBack = RobotMap.backRightMotor;
     PigeonIMU imu = new PigeonIMU(RobotMap.conveyerBeltMotor); 
-    /***************************************
-    WHY IS THIS ON LEFT INTAKE MOTOR??? 
-    ***************************************/
+
 	// code borrowed from standard wpi lib library       2/10/2018     M.F.
 	DifferentialDrive robotDrive = RobotMap.robotDrive;
 	
