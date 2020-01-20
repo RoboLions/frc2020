@@ -33,7 +33,21 @@ public class CountingSpins extends Command {
 
     //how to get the number of ticks the encoder is getting?
     //website will say # ticks per revolution of the motor
+    public int getRaw() {
+      int value;
+      if (m_counter != null) {
+        value = m_counter.get();
+      } else {
+        value = m_encoder.readOutput_Value();
+      }
+      return value;
+    }
 
+    if (value == totalEncoderTicks) {
+      //spinner stops
+    } else {
+
+    }
 
   }
 
