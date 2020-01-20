@@ -16,8 +16,7 @@ import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
   
- // public static final ColorSensorV3 colorSensor = new ColorSensorV3(/*put port here*/);
-  
+ //public static final ColorSensorV3 colorSensor = new ColorSensorV3(/*put port here*/);
   /*
   public final Color red = ColorMake (225, 0, 255);
   public final Color yellow = ColorMake (255, 255, 0);

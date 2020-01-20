@@ -9,6 +9,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.*;
+import frc.robot.RobotMap;
 
 public class CountingSpins extends Command {
    //175.939188601 inches circumference of color wheel
@@ -17,14 +19,29 @@ public class CountingSpins extends Command {
     //# times needed to rotate * # ticks per full rotation = total # ticks the encoder should
     //count before the spinner stops
 
-  public static final double controlPanelCircumference = 175.939188601;
-  public static final double spinerCircumference = 0.0; //placeholder 
-  public static final double totalRotations = (175.939188601/0.0)*4;
+  public static final double controlPanelCircumference = 100.530964915; //pi*diameter
+  public static final double spinnerCircumference = 0.0; //placeholder 
+  public static final double totalRotations = (controlPanelCircumference/spinnerCircumference)*4;
   public static final double encoderTicksPR = 1440; //placeholder 
   public static final double totalEncoderTicks = totalRotations * encoderTicksPR;
+  public static double count; //individual encoder ticks
 
-  public CountingSpins() {
-    //how to tell number of times spinner rotates: the encoder will tell
+  //Encoder sampleEncoder = new Encoder(0, 0); //placeholder (is this where this should be?)
+
+  public static void SmartDashboard() {
+    SmartDashboard.putNumber("Encoder: Rotation", CountingSpins.getTicks());
+  }
+  
+  public static double getTicks() {
+    count = RobotMap.encoderMotor.get();
+    return count;
+  }
+  
+  public static void resetEncoder() {
+    count = 0;
+  }
+
+  public static void CountingSpins() {
     //first reset the encoder to 0
     //then the encoder starts counting the number of ticks
     //when the encoder reaches totalEncoderTicks, the spinner will stop
@@ -32,27 +49,19 @@ public class CountingSpins extends Command {
     resetEncoder();
 
     //how to get the number of ticks the encoder is getting?
-    //website will say # ticks per revolution of the motor
-    public int getRaw() {
-      int value;
-      if (m_counter != null) {
-        value = m_counter.get();
-      } else {
-        value = m_encoder.readOutput_Value();
-      }
-      return value;
+    //int count = sampleEncoder.getRaw();
+
+    if (count<=totalEncoderTicks) {
+      //continue spinning motor
+      RobotMap.encoderMotor.set(0.3);
+    } else if (count<=(totalEncoderTicks-100)) {
+      //slow the motor
+      RobotMap.encoderMotor.set(0.2);
     }
-
-    if (value == totalEncoderTicks) {
-      //spinner stops
-    } else {
-
+    else {
+      //stop the motor
+      RobotMap.encoderMotor.set(0);
     }
-
-  }
-
-  private void resetEncoder() {
-      //RobotMap.encoderMotor.getSensorCollection(0);
   }
 
   // Called just before this Command runs the first time
@@ -81,4 +90,5 @@ public class CountingSpins extends Command {
   @Override
   protected void interrupted() {
   }
+
 }
