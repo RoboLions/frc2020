@@ -9,20 +9,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-
-public class AutoLimelightShooter extends Command {
-  /* 
-  1. calculate distance from the robot to the port
-  2. use that distance and the predetermined speed to determine 
-        a) the angle of the shooter
-
-  vf^2 = vi^2 + 2ax 
-  x = vt + at^2
-
-  */
-
-
-  public AutoLimelightShooter() {
+public class ShootOut extends Command {
+  public ShootOut() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -35,9 +23,6 @@ public class AutoLimelightShooter extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-    // Calculate distance from the robot to the power cell port
-
   }
 
   // Make this return true when this Command no longer needs to run execute()
