@@ -7,19 +7,10 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.*;
 import frc.robot.RobotMap;
-import frc.robot.subsystems.ColorWheel;
 
 public class RotationControl extends Command {
-   //175.939188601 inches circumference of color wheel
-    //?? (var: spin) inches circumference of spinner
-    //175.939188601 divided by spin multiplied by 4 = total # times spinner needs to rotate
-    //# times needed to rotate * # ticks per full rotation = total # ticks the encoder should
-    //count before the spinner stops
-
   public static final double controlPanelCircumference = 100.530964915; //pi*diameter
   public static final double spinnerCircumference = 0.0; //placeholder 
   public static final double totalRotations = (controlPanelCircumference/spinnerCircumference)*4;
@@ -37,11 +28,7 @@ public class RotationControl extends Command {
     //first reset the encoder to 0
     //then the encoder starts counting the number of ticks
     //when the encoder reaches totalEncoderTicks, the spinner will stop
-    //how to reset an encoder?
     resetEncoder();
-
-    //how to get the number of ticks the encoder is getting?
-    //int count = sampleEncoder.getRaw();
 
     if (count<=totalEncoderTicks) {
       //continue spinning motor
