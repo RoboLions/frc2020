@@ -11,8 +11,9 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 import frc.robot.RobotMap;
+import frc.robot.subsystems.ColorWheel;
 
-public class CountingSpins extends Command {
+public class RotationControl extends Command {
    //175.939188601 inches circumference of color wheel
     //?? (var: spin) inches circumference of spinner
     //175.939188601 divided by spin multiplied by 4 = total # times spinner needs to rotate
@@ -28,15 +29,6 @@ public class CountingSpins extends Command {
 
   //Encoder sampleEncoder = new Encoder(0, 0); //placeholder (is this where this should be?)
 
-  public static void SmartDashboard() {
-    SmartDashboard.putNumber("Encoder: Rotation", CountingSpins.getTicks());
-  }
-  
-  public static double getTicks() {
-    count = RobotMap.encoderMotor.get();
-    return count;
-  }
-  
   public static void resetEncoder() {
     count = 0;
   }
