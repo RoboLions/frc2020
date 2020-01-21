@@ -8,20 +8,19 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.util.ColorShim;
-import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.I2C.Port;
-import com.revrobotics.ColorSensorV3;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.util.Color;
+
 import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorMatchResult;
+import com.revrobotics.ColorSensorV3;
 
 public class DetectColor extends Command {
   
   private Port i2cport;
 
-public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport/*put port here*/);
+  public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport/* put port here */);
   // ^^^ this line of code is an error because the port isn't here^ yet
 
   public int r;
