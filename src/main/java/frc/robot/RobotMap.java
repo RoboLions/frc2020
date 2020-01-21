@@ -15,7 +15,7 @@ public class RobotMap {
 	public static final int LEFT_BACK_DRIVE_PORT = 3;
 	public static final int RIGHT_FRONT_DRIVE_PORT = 2;
     public static final int RIGHT_BACK_DRIVE_PORT = 4;
-    //public static final int ENCODER_MOTOR_PORT1 = #;
+    public static final int ENCODER_MOTOR_PORT = 0; //placeholder
     public static final int CONVEYER_BELT_PORT = 10;
 
     /************************************************************************************************************/
@@ -28,6 +28,6 @@ public class RobotMap {
     public static DifferentialDrive robotDrive = new DifferentialDrive(frontLeftMotor, frontRightMotor);
 
     public static WPI_TalonSRX conveyerBeltMotor = new WPI_TalonSRX(CONVEYER_BELT_PORT);
-    //public static WPI_TalonSRX encoderMotor = new WPI_TalonSRX(ENCODER_MOTOR_PORT);
+    public static WPI_TalonSRX encoderMotor = new WPI_TalonSRX(ENCODER_MOTOR_PORT);
 
 }

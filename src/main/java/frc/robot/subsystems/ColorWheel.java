@@ -9,9 +9,22 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wiplibj.command.DetectColor;
+import edu.wpi.first.wpilibj.smartdashboard.*;
+import frc.robot.RobotMap;
+import frc.robot.commands.RotationControl;
 
 public class ColorWheel extends Subsystem {
   public static final int ColorCount = 0;
+
+  public static void SmartDashboard() {
+    SmartDashboard.putNumber("Encoder: Rotation", ColorWheel.getTicks());
+  }
+  
+  public static double getTicks() {
+    RotationControl.count = RobotMap.encoderMotor.get();
+    return RotationControl.count;
+  }
+
   /*public static final int color;
   public static final int red;
 
