@@ -30,10 +30,10 @@ public class RotationControl extends Command {
     //when the encoder reaches totalEncoderTicks, the spinner will stop
     resetEncoder();
 
-    if (count<=totalEncoderTicks) {
+    if (count<=(totalEncoderTicks-100)) {
       //continue spinning motor
       RobotMap.encoderMotor.set(0.3);
-    } else if (count<=(totalEncoderTicks-100)) {
+    } else if (count<=totalEncoderTicks) {
       //slow the motor
       RobotMap.encoderMotor.set(0.2);
     }

@@ -763,4 +763,11 @@ public class Drivetrain extends Subsystem {
         frontLeftMotor.set(0.001);
         frontRightMotor.set(0.001);
     }
+
+	public void pidTuneAuto(double th, double ro, double delta_v, double speed) {
+	}
+
+	public double VelocityinMeters() {
+		return 0;
+	}
 }
