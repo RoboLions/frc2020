@@ -8,7 +8,7 @@ public class Shooter extends Subsystem {
     public static double pythagoreanShotDistance = 0; // 
 
     public static double height1 = 0;   // y height from the floor to the camera in meters
-    public static double height2 = 2.5019;   // y height from the floor to the port height in meters
+    public static double height2 = 2.5019;   // y height from the floor to the port height in meters (2.5019)
     public static double angle1 = 0;   // mounting angle of the limelight
     public static double angle2 = 0;   // y angle to the target that limelight tells you
   
@@ -33,8 +33,8 @@ public static double getDistanceShot() {
     return distanceShot;
 }
   /*************************************************************************
-  * Add your docs here.
-  * 
+  * This method gives you the necessary angle that the shooter needs
+  * to be at for the power cell to make it into the outer port.
   *************************************************************************/
 public static double getAngleOfShooter() {
     Math.atan((height1/distanceFromPort));

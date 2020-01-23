@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.ColorWheel;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Limelight;
+import frc.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +33,10 @@ public class Robot extends TimedRobot {
   public static Drivetrain driveTrain = new Drivetrain();
   public static OI m_oi = new OI();
   public static Limelight limelight = new Limelight();
+  public static Climber climber = new Climber();
+  public static ColorWheel colorWheel = new ColorWheel();
+  public static Shooter shooter = new Shooter();
+
   //public static Encoder spinnerEncoder = new Encoder (values);
 
   /**
