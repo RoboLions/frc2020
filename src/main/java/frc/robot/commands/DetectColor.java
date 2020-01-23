@@ -11,23 +11,28 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.I2C.Port;
+
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatch;
 import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
 
-  private Port i2cport;
+  //private Port i2cport;
+  public final I2C.Port i2cPort = I2C.Port.kOnboard; //change the port to match the connection of sensor
 
-  public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport/* put port here */);
+  public final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cport/* put port here */);
   // ^^^ this line of code is an error because the port isn't here^ yet
 
-//public Color *color name* = new Color (double red, double green, double blue)
-public static final Color red = new Color(1, 0, 1);
-public static final Color yellow = new Color(1, 1, 0);
-public static final Color green = new Color(0, 1, 0);
-public static final Color blue = new Color(0, 1, 1);
+  public final ColorMatch m_colorMatcher = new ColorMatch();
+
+  //public Color *color name* = new Color (double red, double green, double blue)
+  public static final Color red = new Color(1, 0, 1);
+  public static final Color yellow = new Color(1, 1, 0);
+  public static final Color green = new Color(0, 1, 0);
+  public static final Color blue = new Color(0, 1, 1);
 
   // Called just before this Command runs the first time
   @Override
