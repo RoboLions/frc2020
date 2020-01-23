@@ -8,93 +8,62 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
-
-import com.revrobotics.ColorMatch;
-import com.revrobotics.getColor;
-import com.revrobotics.ColorMatchResult;
+import edu.wpi.first.wpilibj.I2C.Port;
 import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorMatch;
+import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
-  
+
   private Port i2cport;
 
   public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport/* put port here */);
   // ^^^ this line of code is an error because the port isn't here^ yet
 
-  public int r;
-  public int g;
-  public int b;
-  
-  public String Color(int r, int g, int b) {
-
-  String red = Color (255, 0, 255);
-  String yellow = Color (255, 255, 0);
-  String green = Color (0, 255, 0);
-  String blue = Color (0, 255, 255);
-
-  /*
-  Color color = Color.red (255, 0, 255);
-  Color color = Color.yellow (255, 255, 0);
-  Color color = Color.green (0, 255, 0);
-  Color color = Color.blue (0, 255, 255);
-  ^^ this code didn't work because for some reason it says "Color cannot be resolved to a type"
-  even though Color is imported
-  */
-
-  }
-  
-  /*
-  public final Color red = ColorMatch.ColorMake (225, 0, 255);
-  public final Color yellow = ColorMatch.ColorMake (255, 255, 0);
-  public final Color green = ColorMatch.ColorMake (0, 255, 0);
-  public final Color blue = ColorMatch.ColorMake (0, 255, 255);
-  */
+//public Color *color name* = new Color (double red, double green, double blue)
+public static final Color red = new Color(1, 0, 1);
+public static final Color yellow = new Color(1, 1, 0);
+public static final Color green = new Color(0, 1, 0);
+public static final Color blue = new Color(0, 1, 1);
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    String detectedColor = colorSensor.getColor();    
-    /* ^^ getColor() gives the error:
-    * "The method getColor() from the type ColorSensorV3 refers to the missing type Color"
-    * Color is imported though?? (import edu.wpi.first.wpilibj.util.Color;)
-    * It also says that the Color import isn't used even if it is
-    */
-  }
-
-  @Override
-  public void robotPeriodic() {
-    colorSensor.getRawColor();
-    
-    String colorString;
+    final Color detectedColor = colorSensor.getColor();
+    //colorSensor.getRawColor(); 
+    final String colorString = new String();
     ColorMatchResult match = ColorMatch.matchClosestColor(detectedColor);
 
-    if (match.Color = red) {
+    if (match.color == red) {
       colorString = "Red";
     }
-    else if (match.Color = yellow) {
+    else if (match.color == yellow) {
       colorString = "Yellow";
     }
-    else if (match.Color = green) {
+    else if (match.color == green) {
       colorString = "Green";
     }
-    else if (match.Color = blue) {
+    else if (match.color == blue) {
       colorString = "Blue";
     }
     else {
       colorString = "Unknown";
     }
+    
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Yellow", detectedColor.yellow);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+  
   }
-
-  SmartDashboard.putString("Detected Color: ", colorString);
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
