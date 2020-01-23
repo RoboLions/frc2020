@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.DetectColor;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.ColorWheel;
 import frc.robot.subsystems.Drivetrain;
@@ -48,6 +49,9 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+
+    DetectColor.m_colorMatcher.addColorMatch(DetectColor.blue);
+
   }
 
   /**

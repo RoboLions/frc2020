@@ -7,8 +7,8 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.DetectColor;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+//import edu.wpi.first.wiplibj.command.DetectColor;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 import frc.robot.RobotMap;
 import frc.robot.commands.RotationControl;

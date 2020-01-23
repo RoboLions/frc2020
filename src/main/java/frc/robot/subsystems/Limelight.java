@@ -7,9 +7,10 @@
 /***  Written by Ava L. Byrd - 2019 FRC Season  ***/
 
 package frc.robot.subsystems;
+
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Subsystem;
 import frc.robot.Robot;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
