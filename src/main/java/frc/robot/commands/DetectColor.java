@@ -21,7 +21,8 @@ public class DetectColor extends Command {
   
   private Port i2cport;
 
-public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport);
+  public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport/* put port here */);
+  // ^^^ this line of code is an error because the port isn't here^ yet
 
   public int r;
   public int g;
@@ -40,7 +41,7 @@ public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport);
   Color color = Color.green (0, 255, 0);
   Color color = Color.blue (0, 255, 255);
   ^^ this code didn't work because for some reason it says "Color cannot be resolved to a type"
-  even though Color is imported 
+  even though Color is imported
   */
 
   }
