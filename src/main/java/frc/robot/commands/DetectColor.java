@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
+//the errors that relate to edu.wpi.frist.wpilibj.util.Color; work in the 2020 version
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,9 +18,12 @@ import com.revrobotics.ColorMatchResult;
 
 public class DetectColor extends Command {
 
-  private Port i2cport;
+public static int Color;
+private Port i2cport;
 
 public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cport);
+
+private final ColorMatch m_ColorMatch = new ColorMatch();
 
 //public Color *color name* = new Color (double red, double green, double blue)
 public static final Color red = new Color(1, 0, 1);
@@ -31,15 +34,19 @@ public static final Color blue = new Color(0, 1, 1);
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    m_ColorMatch.addColorMatch(red);
+    m_ColorMatch.addColorMatch(yellow);
+    m_ColorMatch.addColorMatch(green);
+    m_ColorMatch.addColorMatch(blue);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    final Color detectedColor = colorSensor.getColor();
-    //colorSensor.getRawColor(); 
+    final Color detectedColor = colorSensor.getRawColor();
+    //colorSensor.getColor(); 
     final String colorString = new String();
-    ColorMatchResult match = ColorMatch.matchClosestColor(detectedColor);
+    ColorMatchResult match = m_ColorMatch.matchClosestColor(detectedColor);
 
     if (match.color == red) {
       colorString = "Red";
@@ -56,12 +63,11 @@ public static final Color blue = new Color(0, 1, 1);
     else {
       colorString = "Unknown";
     }
-    
+  
     SmartDashboard.putNumber("Red", detectedColor.red);
     SmartDashboard.putNumber("Yellow", detectedColor.yellow);
     SmartDashboard.putNumber("Green", detectedColor.green);
     SmartDashboard.putNumber("Blue", detectedColor.blue);
-  
   }
 
   // Make this return true when this Command no longer needs to run execute()
