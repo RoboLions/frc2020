@@ -23,12 +23,10 @@ public class DetectColor extends Command {
   //private Port i2cport;
   public final I2C.Port i2cPort = I2C.Port.kOnboard; //change the port to match the connection of sensor
 
-  public final ColorSensorV3 m_colorSensor = new ColorSensorV3(i2cport/* put port here */);
+  public final ColorSensorV3 colorSensor = new ColorSensorV3(i2cPort/* put port here */);
   // ^^^ this line of code is an error because the port isn't here^ yet
 
   public final ColorMatch m_colorMatcher = new ColorMatch();
-
-private final ColorMatch m_ColorMatch = new ColorMatch();
 
 //public Color *color name* = new Color (double red, double green, double blue)
 public static final Color red = new Color(1, 0, 1);
@@ -39,19 +37,19 @@ public static final Color blue = new Color(0, 1, 1);
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_ColorMatch.addColorMatch(red);
-    m_ColorMatch.addColorMatch(yellow);
-    m_ColorMatch.addColorMatch(green);
-    m_ColorMatch.addColorMatch(blue);
+    m_colorMatcher.addColorMatch(red);
+    m_colorMatcher.addColorMatch(yellow);
+    m_colorMatcher.addColorMatch(green);
+    m_colorMatcher.addColorMatch(blue);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    final Color detectedColor = colorSensor.getRawColor();
+    final Color detectedColor = colorSensor.getColor();
     //colorSensor.getColor(); 
     final String colorString = new String();
-    ColorMatchResult match = m_ColorMatch.matchClosestColor(detectedColor);
+    ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
 
     if (match.color == red) {
       colorString = "Red";
